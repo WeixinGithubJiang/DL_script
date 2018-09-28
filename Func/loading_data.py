@@ -46,7 +46,7 @@ class DataLoader_base(object):
 		self.output_test = Y_test
 
 	def DataValidation(self):
-		if self.date_validate
+		if self.data_validate:
 			assert self.input_train.shape[0] == self.output_train.shape[0]
 			assert self.input_test.shape[0] == self.output_test.shape[0]
 			assert self.input_train.shape[1:] == self.input_test.shape[1:]
