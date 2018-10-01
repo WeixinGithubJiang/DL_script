@@ -50,6 +50,7 @@ class NetworkBuild_base(object):
 		model.add(Dropout(0.5))
 		model.add(Dense(self.output_shape))
 		model.add(Activation('softmax'))
+		self.model = model
 
 
 	def LoadModel(self):
@@ -59,7 +60,7 @@ class NetworkBuild_base(object):
 				input_shape=self.input_shape,classes=self.output_shape)
 
 		if self.net_name == "VGG19":
-			from keras.applications.vgg16 import VGG19
+			from keras.applications.vgg19 import VGG19
 			self.model = VGG19(weights='imagenet', include_top=False,
 				input_shape=self.input_shape,classes=self.output_shape)
 
