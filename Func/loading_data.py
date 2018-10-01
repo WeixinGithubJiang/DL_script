@@ -51,4 +51,15 @@ class DataLoader_base(object):
 			assert self.input_test.shape[0] == self.output_test.shape[0]
 			assert self.input_train.shape[1:] == self.input_test.shape[1:]
 			assert self.output_train.shape[1:] == self.output_test.shape[1:]
+			info = {}
+			info["dataset_name"] = self.filename
+			info["validation_status"] = self.data_validate
+			info["num_train"] = self.input_train.shape[0]
+			info["num_test"] = self.input_test.shape[0]
+			info["input_shape"] = self.input_train.shape[1:]
+			info["output_shape"] = self.output_train.shape[1:]
+			self.info = info 
+			    
+    
+    
 
