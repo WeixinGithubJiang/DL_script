@@ -5,6 +5,16 @@ from keras.layers import Conv2D, MaxPooling2D
 from ResNet_github import ResnetBuilder
 
 class NetworkBuild_base(object):
+	#
+	# for specific task, build network with required architecture
+	# Several parameters needed to be set by user
+	#	task 		 --> two main category, "classification" and "regression"
+	#	input_shape  --> the required shape fed into the network
+	#	output_shape --> the required shape get out of the network
+	#	pre_train	 --> flag, when we load in a typical model, needed pre-trained weights or random weights
+	#	net_name	 --> the typical architecture we need, like VGG, ResNet
+	#	customized_model --> architecture designed by user can also be fed into the class.
+	#
 
 	def __init__(self, task, input_shape, output_shape, pre_train, net_name, customized_model=None):
 		self.task = task
