@@ -28,10 +28,12 @@ class NetworkRun_base(object):
 					   epochs=self.epochs,
 					   verbose=1)
 
-	def SaveModel(self):
-		if not os.path.isdir(self.save_dir):
-			os.makedirs(self.save_dir)
-		model_path = os.path.join(self.save_dir, self.model_name)
-		self.model.save(model_path)
-		print('Saved trained model at %s ' % model_path)
+
+	## model save function has been moved to another headfile, named as editing_network.py
+	# def SaveModel(self):
+	# 	if not os.path.isdir(self.save_dir):
+	# 		os.makedirs(self.save_dir)
+	# 	model_path = os.path.join(self.save_dir, self.model_name)
+	# 	self.model.save(model_path)
+	# 	print('Saved trained model at %s ' % model_path)
 
