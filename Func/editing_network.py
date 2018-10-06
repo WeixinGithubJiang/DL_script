@@ -31,7 +31,7 @@ class NetworkEdit_base(object):
 		if save_content == "WEIGHTS":
 			self.model.save_weights(model_path)
 
-		assert 1==0, "save_content needs to be MODEL or ARCHITECTURE or WEIGHTS."
+		assert save_content in ["MODEL",  "ARCHITECTURE", "WEIGHTS"], "save_content needs to be MODEL or ARCHITECTURE or WEIGHTS."
 
 	def LoadModel(self, load_content, load_path):
 		assert os.path.exists(load_path), "File does not exist, check the load in path"
@@ -49,4 +49,4 @@ class NetworkEdit_base(object):
 		if load_content == "MODEL":
 			self.model = load_model(load_path)
 
-		assert 1==0, "save_content needs to be MODEL or ARCHITECTURE or WEIGHTS."
+		assert load_content in ["MODEL",  "ARCHITECTURE", "WEIGHTS"], "save_content needs to be MODEL or ARCHITECTURE or WEIGHTS."

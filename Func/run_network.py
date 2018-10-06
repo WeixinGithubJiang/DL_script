@@ -5,8 +5,8 @@ class NetworkRun_base(object):
 
 	def __init__(self, model, opt = keras.optimizers.SGD(), 
 							  loss = keras.losses.mean_squared_error,
-							  input_train=None, output_train=None, batch_size=1,epochs=1,
-							  save_dir=None, model_name="default.h5"):
+							  input_train=None, output_train=None, batch_size=1,epochs=1):
+# 							  save_dir=None, model_name="default.h5"):
 		self.model = model
 		self.opt = opt
 		self.loss = loss
@@ -14,10 +14,10 @@ class NetworkRun_base(object):
 		self.output_train = output_train
 		self.batch_size = batch_size
 		self.epochs = epochs
-		self.save_dir = save_dir
-		self.model_name = model_name
+# 		self.save_dir = save_dir
+# 		self.model_name = model_name
 		self.TrainModel()
-		self.SaveModel()
+# 		self.SaveModel()
 
 	def TrainModel(self):
 		self.model.compile(optimizer=self.opt,
