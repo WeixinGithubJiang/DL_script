@@ -4,6 +4,7 @@ from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 from keras.models import model_from_json
 from keras.models import load_model
+from self_defined_layer import AdLayer
 import os
 
 class NetworkEdit_base(object):
@@ -11,6 +12,14 @@ class NetworkEdit_base(object):
 	def __init__(self, model=None, opt=None):
 		self.model = model
 		self.opt = opt
+
+
+	def TransModel(self):
+		new_model = Sequential()
+		new_model.add(AdLayer(input_shape = self.model.input_shape))
+		for i in range(len(self.model.layers)):
+			new_model.add(self.model.layers[i])
+		self.trans_model = new_model
 
 
 	def SaveModel(self, save_content="MODEL", save_path="./", save_filename="model.h5"):
