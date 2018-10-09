@@ -8,7 +8,7 @@ class AdLayer(Layer):
         super(AdLayer, self).__init__(**kwargs)
 
     def build(self, input_shape):
-        print(type(input_shape),input_shape)
+#         print(type(input_shape),input_shape)
         # Create a trainable weight variable for this layer.
         self.kernel = self.add_weight(name='kernel', 
                                       shape=(input_shape[1:]),
@@ -20,4 +20,4 @@ class AdLayer(Layer):
         return x*self.kernel
 
     def compute_output_shape(self, input_shape):
-        return (input_shape[1:])
+        return input_shape
