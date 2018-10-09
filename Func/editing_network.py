@@ -16,7 +16,7 @@ class NetworkEdit_base(object):
 
 	def TransModel(self):
 		new_model = Sequential()
-		new_model.add(AdLayer(input_shape = self.model.input_shape))
+		new_model.add(AdLayer(input_shape = self.model.input_shape[1:]))
 		for i in range(len(self.model.layers)):
 			new_model.add(self.model.layers[i])
 		self.trans_model = new_model
